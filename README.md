@@ -1,4 +1,4 @@
-# drawingBoard
+# DrawingBoard
 ### Language Used: 
 HTML5 Canvas,CSS,JavaScript.
 ### Project Description: 
