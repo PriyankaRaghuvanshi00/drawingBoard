@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drawing Board</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./script/app.js" defer></script>
+    <script src="./script/handler.js" defer></script>
+    <script src="./script/appDesignHandler.js" defer></script>
+  </head>
+
+  <body>
+    <div style="font-size: 20px">
+      <!-- <i class="fa fa-undo" id="undo" title="undo"></i> -->
+      <i id="switch" class="fa fa-toggle-off"></i>
+    </div>
+    <canvas id="canvas" width="900" height="400"></canvas>
+    <div class="board">
+      <!-- color board -->
+      <div class="Colorboard">
+        <input
+          type="color"
+          id="color"
+          onclick="noteBox('Please click the button!')"
+          title="font color"
+        />
+        <input
+          type="button"
+          class="btn"
+          value="Select Font"
+          onclick="selectedColor(this)"
+        />
+      </div>
+      <!-- brush -->
+      <div class="brush">
+        <i onclick="styleSelected('normal')" title="font style">Normal</i>
+        <i onclick="styleSelected('stamp')" title="font style">StampLike</i>
+        <i onclick="styleSelected('Sstamp')" title="font style"
+          >SmoothStampLike</i
+        >
+        <i onclick="styleSelected('blur')" title="font style">BlurLike</i>
+        <i onclick="styleSelected('grad')" title="font style">Ring</i>
+        <i onclick="styleSelected('brush')" title="font style">Brush</i>
+        <i onclick="styleSelected('sliced')" title="font style">SlicedBrush</i>
+      </div>
+      <!-- shape -->
+      <div class="shape">
+        <i id="circle" title="Draw Circle" class="fa fa-circle icons"></i>
+        <i id="rect" title="Draw Rectangle" class="fa fa-stop icons"></i>
+        <i class="fa fa-pencil icons" title="Draw With Pen" id="pen"></i>
+      </div>
+
+      <!-- pen weight -->
+      <div class="pen-weight">
+        <i
+          style="font-size: 7px"
+          title="Choose Font Weight"
+          onclick="fontSelected(2)"
+          >2px</i
+        >
+        <i
+          style="font-size: 10px"
+          title="Choose Font Weight"
+          onclick="fontSelected(5)"
+          >5px</i
+        >
+        <i
+          style="font-size: 12px"
+          title="Choose Font Weight"
+          onclick="fontSelected(7)"
+          >7px</i
+        >
+        <i
+          style="font-size: 15px"
+          title="Choose Font Weight"
+          onclick="fontSelected(10)"
+          >10px</i
+        >
+        <i
+          style="font-size: 25px"
+          title="Choose Font Weight"
+          onclick="fontSelected(20)"
+          >20px</i
+        >
+        <i
+          style="font-size: 26px"
+          title="Choose Font Weight"
+          onclick="fontSelected(30)"
+          >30px</i
+        >
+      </div>
+      <!-- erraser -->
+      <div class="eraser">
+        <i
+          class="fa fa-eraser"
+          title="Choose Eraser Size"
+          style="font-size: 20px"
+          onclick="erase(10)"
+        ></i>
+        <i
+          class="fa fa-eraser"
+          title="Choose Eraser Size"
+          style="font-size: 30px"
+          onclick="erase(30)"
+        ></i>
+        <i
+          class="fa fa-eraser"
+          title="Choose Eraser Size"
+          style="font-size: 40px"
+          onclick="erase(60)"
+        ></i>
+      </div>
+      <!-- set background color -->
+      <div class="Colorboard">
+        <p style="color: crimson; padding-top: 3px">background Filler</p>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: green"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: red"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: chocolate"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: brown"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: darkgoldenrod"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: hotpink"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: black"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: aqua"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: khaki"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: blue"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: cornflowerblue"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: darkred"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: indigo"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: white"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: darksalmon"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: darkslategray"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: darkcyan"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: darkgray"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: bisque"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: darkorange"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: darkgreen"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: maroon"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: sandybrown"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: lemonchiffon"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: darkorchid"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: lightslategrey"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: mediumslateblue"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: deepskyblue"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: seagreen"
+          onclick="selectedBg(this)"
+        ></div>
+        <div
+          class="colorBlock"
+          title="Choose Color For Background"
+          style="background-color: plum"
+          onclick="selectedBg(this)"
+        ></div>
+      </div>
+      <div class="clearAll">
+        <button>ClearAll</button>
+      </div>
+    </div>
+    <div class="note"></div>
+    <p class="remark">**Move Pen While Clicking!</p>
+  </body>
+</html>
