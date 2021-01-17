@@ -24,18 +24,19 @@ function fontSelected(size) {
 }
 
 
-const darkOn = document.getElementById("switch");
-let isSwitchOn = false;
-// dark mode
-
-//to turn on the dark mode on event listener
-darkOn.addEventListener("click", () => {
-  darkMode(event);
-});
 function noteBox(note)
 {
   tool.noteBox(note)
 }
+
+// dark mode
+//to turn on the dark mode on event listener
+const darkOn = document.getElementById("switch");
+let isSwitchOn = false;
+darkOn.addEventListener("click", () => {
+  darkMode(event);
+});
+
 function darkMode(event) {
   tool.noteBox('Switch Triggered');
   darkOn.classList.toggle("fa-toggle-on");
