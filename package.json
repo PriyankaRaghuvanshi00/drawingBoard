@@ -1,0 +1,24 @@
+{
+  "name": "drawing-board",
+  "version": "1.0.0",
+  "description": "HTML5 Canvas,CSS,JavaScript.\r ### Project Description: \r The project uses JavaScript Mouse Event to draw on Canvas. This Project includes all the necessary things required by a drawing board. Allow users to choose different types of font-color, shapes, font-size, brushes, eraser size, background-color of the canvas. Also, allow to switch on dark mode. It also has some hidden features like- Pop Up Toast, which give some tooltips to the user.\r ### Project Images:\r ![Project Image](/images/Project.png)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PriyankaRaghuvanshi00/drawingBoard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PriyankaRaghuvanshi00/drawingBoard/issues"
+  },
+  "homepage": "https://github.com/PriyankaRaghuvanshi00/drawingBoard#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1"
+  }
+}
