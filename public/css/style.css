@@ -1,63 +1,80 @@
-body {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 2fr));
+}
+/* header */
+.header {
+  grid-column: 1 / span 6;
+ 
   text-align: center;
-  background-color: white;
-  box-sizing: border-box;
 }
-.remark {
-  color: gray;
-  font-weight: bolder;
+#switch {
+  text-shadow: 3px 3px 3px gray;
+  color: crimson;
+  font-size: 50px;
+  cursor: pointer;
 }
-.note {
-  margin-left: 40%;
-  box-shadow: 5px 5px 50px gray;
-  padding: 10px 10px;
-  border-radius: 20px;
-  width: 40%;
-  text-align: center;
-  color: cornflowerblue;
-  display: none;
+/* canvas  */
+.canvas-sect {
+  grid-column: 1 / span 1;
 }
-
 #canvas {
   cursor: crosshair;
-  margin: 1%;
   border: 3px solid white;
   box-shadow: 5px 5px 50px gray;
   border-radius: 20px;
 }
-
-.board {
-  margin-left: 1%;
-  width: 20%;
-  box-shadow: 5px 5px 50px gray;
-  float: left;
-  border-radius: 20px;
+/* side bar */
+.sidebar {
+    margin: 20px 20px;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-shadow: 5px 5px 50px gray;
+    overflow: hidden;
+    padding: 2px 1px;
+    border-radius: 20px;
+  grid-column-start: 2;
+  grid-column-end: 7;
 }
-
-#switch {
-  text-shadow: 3px 3px 3px gray;
-  color: crimson;
-  font-size: 140%;
-  cursor: pointer;
+/* input color css */
+#color{
+    width: 50%;
+    margin: 10px 10px;
 }
-
 .Colorboard {
-  box-shadow: 5px 5px 50px gray;
-  height: 50%;
-  width: 100%;
+    box-shadow: 5px 5px 50px gray;
+    border-radius: 20px;
+  }
+  .colorBlock {
+    height: 20px;
+    width: 5%;
+    float: left;
+  cursor: pointer;
+  }
+.btn{
+ color: crimson;
+  outline: none;
   border-radius: 20px;
+  border: 0 solid white;
+  background-color: rgb(253, 168, 137);
+  color: black;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgb(243, 231, 231);
+  padding: 6px 10px;
+  margin: 10px 10px;
 }
+/* brush css */
 .brush {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  box-shadow: 5px 5px 50px gray;
-  height: 50%;
-  overflow: hidden;
-  width: 100%;
-  padding: 2px 1px;
-  border-radius: 20px;
-  margin-top: 5%;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-shadow: 5px 5px 50px gray;
+    overflow: hidden;
+    padding: 2px 1px;
+    border-radius: 20px;
 }
 .brush > i {
   text-shadow: 3px 3px 10px rgba(128, 128, 128, 0.719);
@@ -68,87 +85,97 @@ body {
   padding: 5px 5px;
   margin: 2px 2px;
 }
-.colorBlock {
-  cursor: pointer;
-  float: right;
-  height: 20px;
-  width: 10%;
-}
-.btn {
-  padding: 6px 10px;
-  margin: 10px 10px;
-  color: crimson;
-  outline: none;
-  border-radius: 20px;
-  border: 0 solid white;
-  background-color: rgb(253, 168, 137);
-  color: black;
-  cursor: pointer;
-  box-shadow: 1px 1px 5px rgb(243, 231, 231);
-}
 
-.icons {
-  font-size: 40px;
-  color: crimson;
-  margin-left: 10%;
-  font-weight: bolder;
-}
+/* shape */
 .shape {
-  height: 50%;
-  width: 96%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  float: right;
-  margin-top: 5%;
-  box-shadow: 5px 5px 50px gray;
-  border-radius: 20px;
-  padding: 5px 5px;
-  cursor: pointer;
-  text-shadow: 2px 2px 1px rgb(231, 192, 192);
-}
-.eraser {
-  color: cornflowerblue;
-  box-shadow: 5px 5px 50px gray;
-  border-radius: 20px;
-  padding: 10px 10px;
-  margin-top: 5%;
-  cursor: pointer;
-  text-shadow: 2px 2px 1px gray;
-}
-.pen-weight {
-  box-shadow: 5px 5px 50px gray;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  border-radius: 20px;
-  margin-top: 33%;
-  width: 100%;
-  padding: 20px 2px;
-}
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 5px 5px 50px gray;
+    border-radius: 20px;
+    padding: 5px 5px;
+    cursor: pointer;
+    text-shadow: 2px 2px 1px rgb(231, 192, 192);
+  }
 
-.pen-weight > i {
-  text-shadow: 3px 3px 10px rgb(93, 211, 93);
-  font-weight: bolder;
-  color: darkgoldenrod;
-  padding: 5px 6px;
-  cursor: pointer;
-}
-.clearAll > button {
-  margin-top: 8%;
-  margin-bottom: 8%;
-  padding: 6px 80px;
-  border-radius: 20px;
-  outline: none;
-  border: 0 solid white;
-  background-color: coral;
-  color: black;
-  cursor: pointer;
-  box-shadow: 1px 1px 5px red;
-}
-#undo {
-  font-size: 30px;
-  margin: 10px 10px;
-  color: crimson;
-  text-shadow: 3px 3px 3px gray;
-}
+  .icons {
+    font-size: 40px;
+    color: crimson;
+    font-weight: bolder;
+    margin: 5px 10px;
+  }
+  /* pen weight */
+  .pen-weight {
+    margin-top: 1%;
+    box-shadow: 5px 5px 50px gray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 20px 2px;
+  }
+  .pen-weight > i {
+    text-shadow: 3px 3px 10px rgb(93, 211, 93);
+    font-weight: bolder;
+    color: darkgoldenrod;
+    padding: 5px 6px;
+    cursor: pointer;
+  }
+  .eraser {
+      margin-top: 1%;
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    color: cornflowerblue;
+    box-shadow: 5px 5px 50px gray;
+    border-radius: 20px;
+    padding: 10px 10px;
+    cursor: pointer;
+    text-shadow: 2px 2px 1px gray;
+  }
+  .clearAll{
+    margin-top: 1%;
+    box-shadow: 5px 5px 50px gray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 20px 2px;
+  }
+  .clearAll > button {
+    padding: 6px 80px;
+    border-radius: 20px;
+    outline: none;
+    border: 0 solid white;
+    background-color: coral;
+    color: black;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px red;
+  }
+ 
+  /* footer */
+  .footer{
+      text-align: center;
+  grid-column: 1 / span 6;
+  }
+  .remark {
+    color: gray;
+    font-weight: bolder;
+  }
+  .note {
+    margin-left: 40%;
+    box-shadow: 5px 5px 50px gray;
+    padding: 10px 10px;
+    border-radius: 20px;
+    width: 40%;
+    text-align: center;
+    color: cornflowerblue;
+    display: none;
+  }
+
+ 
